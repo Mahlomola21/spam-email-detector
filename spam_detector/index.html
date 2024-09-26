@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Email Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1em;
+            resize: none;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Spam Email Detector</h1>
+        <textarea id="emailText" rows="10" cols="30" placeholder="Paste your email here..."></textarea>
+        <button id="checkButton">Check Email</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        document.getElementById('checkButton').addEventListener('click', async () => {
+            const emailText = document.getElementById('emailText').value;
+            const response = await fetch('http://localhost:3000/check-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ emailText })
+            });
+            const data = await response.json();
+            document.getElementById('result').innerText = `Result: ${data.result}`;
+        });
+    </script>
+</body>
+</html>

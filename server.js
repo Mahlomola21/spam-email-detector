@@ -9,8 +9,13 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Serve static files from the "spam_detector" directory
-app.use(express.static(path.join(__dirname, 'spam_detector')));
+// Serve static files for the home page and spam detector
+app.use(express.static(path.join(__dirname)));
+
+// Route to serve the home page
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));  // Serve home page
+});
 
 // Route for the root URL
 app.get('/', (req, res) => {

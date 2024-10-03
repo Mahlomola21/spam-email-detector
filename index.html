@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detector - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 style="color: #4ae251;">Welcome to the Email Detector</h1>
+        </header>
+        <section class="description">
+            <p>
+                Our Email Detector helps you identify unwanted emails in your inbox by using cutting-edge machine learning 
+                technology. Simply paste your email content, and the system will determine whether it's spam or legitimate(Ham).
+            </p>
+            <p>
+                Keep your inbox clean and free from harmful or irrelevant messages. Start using the spam detector now!
+            </p>
+        </section>
+        <button class="get-started-btn" onclick="window.location.href='spam_detector/index.html'">Get Started</button>
+    </div>
+</body>
+</html>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('./spam_detector/emailss.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Optional: darken the content background for readability */
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    color: #ddd;
+}
+
+.get-started-btn {
+    background-color: #4ae270;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.get-started-btn:hover {
+    background-color: #35b78a;
+}
+
+button:focus {
+    outline: none;
+}
+h1{
+    color: #4a90e2;
+}
+
+p{
+    color: white;
+}
+
+
+
+</style>

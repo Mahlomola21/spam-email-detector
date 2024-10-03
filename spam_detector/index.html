@@ -85,7 +85,7 @@
                 body: JSON.stringify({ emailText })
             });
             const data = await response.json();
-            document.getElementById('result').innerText = `Result: ${data.result}`;
+            document.getElementById('result').innerText = `This email is: ${data.result}`;
         });
     </script>
 </body>

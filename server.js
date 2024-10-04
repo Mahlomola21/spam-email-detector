@@ -1,6 +1,6 @@
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
-const path = require('path'); // Corrected typo from 'pat' to 'path'
 const cors = require('cors');
 const axios = require('axios');
 const app = express();
@@ -17,18 +17,17 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));  // Serve home page
 });
 
-// Route for the root URL
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'spam_detector', 'index.html'));
+// Route for the email classification page (Spam Detector)
+app.get('/spam-detector', (req, res) => {
+    res.sendFile(path.join(__dirname, 'spam_detector', 'index.html'));  // Serve spam detector page
 });
 
-// POST route to check the email
+// API route for checking email spam
 app.post('/check-email', async (req, res) => {
     const { emailText } = req.body;
 
     try {
-        // Replace 'http://localhost:5000/predict' with your deployed model's URL
-        const response = await axios.post('YOUR_DEPLOYED_MODEL_URL/predict', {
+        const response = await axios.post('http://localhost:5000/predict', {
             emailText: emailText
         });
         const prediction = response.data.result;
@@ -42,5 +41,3 @@ app.post('/check-email', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
-module.exports = app; // For Vercel to recognize this as a Node.js serverless function
